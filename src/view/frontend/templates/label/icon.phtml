@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Copyright Elgentos BV. All rights reserved.
+ * https://www.elgentos.nl/
+ */
+
+declare(strict_types=1);
+
+use Elgentos\StoreSwitcher\ViewModel\StoreSwitcher;
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\SvgIcons;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+$svgIcons      = $viewModels->require(SvgIcons::class);
+$storeSwitcher = $viewModels->require(StoreSwitcher::class);
+$icon          = $storeSwitcher->getStoreIcon($block->getStore());
+?>
+
+<?= /* @noEscape */ $svgIcons->renderHtml(
+    sprintf(
+        '%s',
+        $icon,
+    ),
+    'h-5 w-5 pointer-events-none rounded-full overflow-hidden'
+) ?>

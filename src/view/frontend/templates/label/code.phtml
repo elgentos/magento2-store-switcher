@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Copyright Elgentos BV. All rights reserved.
+ * https://www.elgentos.nl/
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+?>
+<span class="flex items-center">
+    <span class="font-bold uppercase mr-2">
+        <?= $escaper->escapeHtml($block->getStore()?->getName() ?? '') ?>
+    </span>
+    <span
+        class="transition"
+        :class="{'rotate-180': open}"
+    >
+        <?= /* @noEscape */ $heroicons->chevronDownHtml('text-base', 16, 16); ?>
+    </span>
+</span>

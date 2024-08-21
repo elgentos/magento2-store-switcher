@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header-content.additional">
+            <block name="store-switcher"
+                   template="Elgentos_StoreSwitcher::switcher.phtml"
+                   before="-"
+                   ifconfig="store_switcher/general/enabled"
+            >
+                <block name="store-switcher.label.code"
+                       template="Elgentos_StoreSwitcher::label/code.phtml"
+                />
+                <block name="store-switcher.label.icon"
+                       template="Elgentos_StoreSwitcher::label/icon.phtml"
+                />
+                <block name="store-switcher.label.name"
+                       template="Elgentos_StoreSwitcher::label/name.phtml"
+                />
+            </block>
+        </referenceContainer>
+    </body>
+</page>
