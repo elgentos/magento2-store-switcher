@@ -31,7 +31,7 @@ readonly class Configuration
     ){
     }
 
-    public function getRenderType(StoreInterface $store = null): string
+    public function getRenderType(?StoreInterface $store = null): string
     {
         return (string) $this->scopeConfig->getValue(
             self::RENDER_TYPE_XML_PATH,
@@ -40,7 +40,7 @@ readonly class Configuration
         );
     }
 
-    public function getStoreIcon(StoreInterface $store = null): string
+    public function getStoreIcon(?StoreInterface $store = null): string
     {
         return (string) $this->scopeConfig->getValue(
             self::ICON_NAME_XML_PATH,
